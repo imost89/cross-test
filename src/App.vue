@@ -1,28 +1,58 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
+    <div class="main-wrapper">
+      <div class="main">
+        <side-panel />
+        <field />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import SidePanel from './components/side-panel'
+import Field from './components/field'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld
+    SidePanel,
+    Field
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+
+  .main-wrapper {
+    position: relative;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    max-width: calc(100vh - 16px);
+    max-height: calc(100vh - 16px);
+  }
+
+  .main-wrapper:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  .main {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 20% auto;
+  }
 </style>
