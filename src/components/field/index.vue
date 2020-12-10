@@ -30,18 +30,17 @@ export default {
   },
   methods: {
     clickToCell (numberCell) {
-      console.log('field', numberCell)
-      this.symbolView = this.symbolView === 'X' ? 'O' : 'X'
       this.fieldArray[numberCell] = this.symbolView
       if (combos.some(combo =>
         combo.every(index =>
           this.fieldArray[index] && this.fieldArray[combo[0]] === this.fieldArray[index]
         )
       )) {
-        console.log('^_^ win ^_^')
+        console.log(`${this.symbolView} win ^_^`)
       } else {
         console.log('@_@ неwin @_@')
       }
+      this.symbolView = this.symbolView === 'X' ? 'O' : 'X'
     }
   }
 }
