@@ -12,7 +12,7 @@
 
 <script>
 import Cell from '@/components/cell'
-import combos from '@/store/combos'
+import combos from '@/store/combos.json'
 
 export default {
   name: "Field",
@@ -33,20 +33,18 @@ export default {
       console.log('field', numberCell)
       this.symbolView = this.symbolView === 'X' ? 'O' : 'X'
       this.fieldArray[numberCell] = this.symbolView
-      combos.map(x => x)
-      console.log('this.fieldArray', this.fieldArray)
+      if (combos.some(combo =>
+        combo.every(index =>
+          this.fieldArray[index] && this.fieldArray[combo[0]] === this.fieldArray[index]
+        )
+      )) {
+        console.log('^_^ win ^_^')
+      } else {
+        console.log('@_@ неwin @_@')
+      }
     }
   }
 }
 </script>
 
-<style scoped>
-  .field {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    border: red 2px solid;
-    width: 100%;
-    height: 100%;
-  }
-</style>
+<style src="./style.css" lang="css" />

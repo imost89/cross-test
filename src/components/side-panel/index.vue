@@ -8,8 +8,4 @@ export default {
 }
 </script>
 
-<style scoped>
-  .side-panel {
-    border: blue 2px solid;
-  }
-</style>
+<style src="./style.css" lang="css" />

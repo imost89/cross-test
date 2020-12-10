@@ -29,8 +29,4 @@ export default {
 }
 </script>
 
-<style scoped>
-  .cell {
-    border: green 2px solid;
-  }
-</style>
+<style src="./style.css" lang="css" />
