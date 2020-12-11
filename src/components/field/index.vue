@@ -30,6 +30,9 @@ export default {
   },
   methods: {
     clickToCell (numberCell) {
+      if (this.fieldArray[numberCell]) {
+        return
+      }
       this.fieldArray[numberCell] = this.symbolView
       if (combos.some(combo =>
         combo.every(index =>
@@ -37,8 +40,6 @@ export default {
         )
       )) {
         console.log(`${this.symbolView} win ^_^`)
-      } else {
-        console.log('@_@ неwin @_@')
       }
       this.symbolView = this.symbolView === 'X' ? 'O' : 'X'
     }
