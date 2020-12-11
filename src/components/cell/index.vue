@@ -21,9 +21,8 @@ export default {
   },
   methods: {
     clickToCell () {
-      console.log('cell', this.numberCell, this.symbol)
       this.$emit('click-to-cell')
-      this.symbolView = this.symbol
+      this.symbolView = this.symbolView ? this.symbolView : this.symbol
     }
   }
 }
